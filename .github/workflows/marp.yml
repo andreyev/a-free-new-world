@@ -1,0 +1,41 @@
+name: Generate Marp Slides
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      - name: Generate slides
+        run: marp index.md *.md
+
+      - name: Upload slides as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: slides
+          path: index.html
+
+      - name: Commit generated slides
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'actions@github.com'
+          git add index.html
+          git commit -m 'New Version of generated slides'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
