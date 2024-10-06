@@ -205,6 +205,7 @@ https://en.wikipedia.org/wiki/Software_Freedom_Day
 
 - https://github.blog/open-source/social-impact/the-social-impact-of-open-source/
 - https://techcrunch.com/2019/01/12/how-open-source-software-took-over-the-world/
+- https://medium.com/@ruwan_ranganath/role-of-open-source-in-world-of-devops-talk-at-software-freedom-day-2021-cc28c64aaeb5
 - https://en.wikipedia.org/wiki/Open-core_model
 
 ---
